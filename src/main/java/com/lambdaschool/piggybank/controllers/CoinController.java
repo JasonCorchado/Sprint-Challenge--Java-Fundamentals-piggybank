@@ -26,11 +26,13 @@ public class CoinController {
         double total = 0.0;
         for (Coin c : coinList) {
             total += c.getValue() * c.getQuantity();
-            System.out.println(c.getQuantity() + " " + c.getName());
+            System.out.print(c.getQuantity());
+            if(c.getQuantity() > 1){
+                System.out.println(" " + c.getNameplural());
+            } else{System.out.println(" " + c.getName());}
         }
 
-
-
+        System.out.println("The piggy bank holds " + total);
         return new ResponseEntity<>(total, HttpStatus.OK);
     }
 }
